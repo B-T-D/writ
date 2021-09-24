@@ -1,0 +1,5 @@
+# Model
+
+class LawDoc:
+
+	pass
