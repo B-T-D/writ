@@ -4,7 +4,7 @@
 * SQLite3 DB to cache known documents by deal and cache serialized LawDoc objects for faster retrieval
 * JSON for config
 * Build and installer scripts that update version info
-* rex is not a version control system
+* Not a version control system
 * User customization of e.g. homophone traps ("statute"/"statute") etc. in the config.json
 
 ## Commands
