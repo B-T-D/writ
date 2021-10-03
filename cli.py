@@ -34,7 +34,7 @@ class CLI:
         }
 
     }
-    
+
     def main(self):
         """Handles the root command and dispatches to appropriate subcommand handler methods."""
         texts = self.texts[inspect.currentframe().f_code.co_name]  # If we get name this function's name programatically,

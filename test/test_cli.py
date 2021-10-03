@@ -12,11 +12,34 @@ from project_constants import *
 COMMAND_PREFIX = f"python3 -m {APP_NAME}"
 
 class TestCLIObject(unittest.TestCase):
+    """Tests for the CLI object and its methods."""
+
+    def setUp(self):
+        self.cli_object = cli.CLI()
 
     def test_init(self):
-        cli_object = cli.CLI()
-        print(f"{type(cli_object)}")
-        self.assertIsInstance(cli_object, cli.CLI)
+        self.assertIsInstance(self.cli_object, cli.CLI)
+
+    def test_main(self):
+        with self.assertRaises(SystemExit):  # SystemExit happens when main is called with no sysargv
+            self.cli_object.main()
+
+    def test_typos(self):
+        self.assertIsNone(self.cli_object.typos())  # Doesn't return anything. If nothing broken, a None return
+                                                    #   should be result of calling the method directly.
+
+    def test_add(self):
+        with self.assertRaises(SystemExit):  # "add" command can't be called without argument specifying the document
+                                                #  to add
+            self.cli_object.add()
+
+    def test_checkout(self):
+        with self.assertRaises(SystemExit):  # "checkout" command cannot be called without an argument specifying the
+                                                #   deal to be checked out
+            self.cli_object.checkout()
+
+    def test_status(self):
+        self.assertIsNone(self.cli_object.status())
 
 class TestCommands(unittest.TestCase):
     """Test all supported commands by simulating command line user inputs and capturing stdout returned in response."""
