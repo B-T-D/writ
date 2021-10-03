@@ -8,5 +8,4 @@ install:
 
 script:
   - ./test.sh
-
 after_success: "coveralls"
