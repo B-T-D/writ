@@ -82,12 +82,40 @@ class TestTyposCommand(unittest.TestCase):
 
 class TestAdd(unittest.TestCase):
 
+
+
     def test_add_command_simulates_adding_document_to_deal(self):
         command_suffix = "add Eighth_Lien_Unsecured_Cov_Lite_Credit_Agreement_Taylors_Version.docx"
-        command_suffix = "typos"
         command = COMMAND_PREFIX + ' ' + command_suffix
         args = command.split()
 
+        completed_proc = subprocess.run(
+            args,
+            capture_output=True,
+            encoding="utf-8"
+        )
+        actual_output = completed_proc.stdout
+        print(f"{actual_output=}")
+        self.assertTrue(actual_output.startswith("[Simulated]"))
+
+    def test_add_command_supports_spaces_in_filename(self):
+        """Does the CLI correctly parse the filename as a single string even when it includes space characters?"""
+        command_suffix = "add Eigth Lien Unsecured Cov Lite Credit Agreement Taylors Version.docx"
+        command = COMMAND_PREFIX + ' ' + command_suffix
+        args = command.split()
+        completed_proc = subprocess.run(
+            args,
+            capture_output=True,
+            encoding="utf-8"
+        )
+        actual_output = completed_proc.stdout
+        print(f"{actual_output=}")
+        self.assertTrue(actual_output.startswith("[Simulated]"))
+
+    def test_add_command_supports_apostrophe_in_filename(self):
+        command_suffix = "add Eigth Lien Unsecured Cov Lite Credit Agreement Taylor's Version.docx"
+        command = COMMAND_PREFIX + ' ' + command_suffix
+        args = command.split()
         completed_proc = subprocess.run(
             args,
             capture_output=True,

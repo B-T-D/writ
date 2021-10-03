@@ -11,27 +11,30 @@
 
 * Version
 	
-	$ rex --version
+    $ rex --version
 
 * Run core ctrl-Fs
 
-	$ rex typos -d "myDocumentName.docx" 
+    $ rex typos -d "myDocumentName.docx" 
 
-	-d arg optional. If no active doc set, prompt user to set one
+    -d arg optional. If no active doc set, prompt user to set one
 
 * Status: Identify current document and list all documents associated with this deal
 	
-	$ rex status
+    $ rex status
 
 * Add doc to deal:
 
-	$ rex add myfilename.extension
+    $ rex add myfilename.extension
+
+    * Must support spaces in the filename.	
+
 
 * Change deal:
 
-	$ rex checkout [-d] myDealName
+    $ rex checkout [-d] myDealName
 
-	-d arg analogous to git checkout -b to create new branch
+    -d arg analogous to git checkout -b to create new branch
 
 ## Core typo checks:
 
