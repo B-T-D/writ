@@ -1,4 +1,4 @@
-# v0.1
+.# v0.1
 * Pure Python
 * Distributable as single binary (Pyinstaller)
 * SQLite3 DB to cache known documents by deal and cache serialized LawDoc objects for faster retrieval

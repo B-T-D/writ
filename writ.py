@@ -1,3 +1,9 @@
-# Entrypoint script to call at commandline
+#!/usr/bin/env python3
 
-from cli import CLI
+import cli
+
+def main():
+    cli.CLI()
+
+if __name__ == "__main__":
+    main()
